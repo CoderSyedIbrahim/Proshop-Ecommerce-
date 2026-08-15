@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'sc%oco$+(3$z$at=z4j)#l-+ym)+_b
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
 # Allow hosts from env (comma-separated) or sensible local defaults
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,proshop-demo.herokuapp.com').split(',')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,proshop-demo.herokuapp.com,.pythonanywhere.com').split(',')
+
 
 
 # Application definition
