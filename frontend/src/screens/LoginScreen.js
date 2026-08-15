@@ -39,8 +39,8 @@ function LoginScreen({ location, history }) {
                 <Form.Group controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
-                        type='email'
-                        placeholder='Enter Email'
+                        type='text'
+                        placeholder='Enter Email or Username'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     >

@@ -1928,8 +1928,8 @@
                                         children: [
                                             Object(n.jsx)(We.a.Label, { children: "Email Address" }),
                                             Object(n.jsx)(We.a.Control, {
-                                                type: "email",
-                                                placeholder: "Enter Email",
+                                                type: "text",
+                                                placeholder: "Enter Email or Username",
                                                 value: o,
                                                 onChange: function (e) {
                                                     return d(e.target.value);
@@ -2119,8 +2119,8 @@
                                             }),
                                             Object(n.jsx)(We.a.Control, {
                                                 required: !0,
-                                                type: "email",
-                                                placeholder: "Enter Email",
+                                                type: "text",
+                                                placeholder: "Enter Email or Username",
                                                 value: u,
                                                 onChange: function (e) {
                                                     return p(e.target.value);
