@@ -15,18 +15,52 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.http import HttpResponse
 
 from django.conf import settings
 from django.conf.urls.static import static
-from django.views.generic import TemplateView
+
+def maintenance_view(request, *args, **kwargs):
+    html = """<!DOCTYPE html>
+<html>
+<head>
+    <title>Site Under Maintenance</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            text-align: center;
+            padding: 150px 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 18px;
+            color: #6c757d;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Site Under Maintenance</h1>
+        <p>This service is temporarily unavailable. We apologize for the inconvenience and will be back online shortly.</p>
+    </div>
+</body>
+</html>"""
+    return HttpResponse(html, status=503)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='index.html')),
-    path('api/products/', include('base.urls.product_urls')),
-    path('api/users/', include('base.urls.user_urls')),
-    path('api/orders/', include('base.urls.order_urls')),
-    re_path(r'^(?!api|admin|static|images|media).*$', TemplateView.as_view(template_name='index.html')),
+    re_path(r'^.*$', maintenance_view),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
