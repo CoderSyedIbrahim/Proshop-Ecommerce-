@@ -1,0 +1,26 @@
+# Python virtual environments
+.venv/
+.venv38/
+venv/
+ENV/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+db.sqlite3
+
+# Node / JS environments
+node_modules/
+.eslintcache
+frontend/.node18/
+
+# IDE configs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
